@@ -1,0 +1,136 @@
+.loaderContainer {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  user-select: none;
+  overflow: hidden;
+  font-family: var(--font-sans, system-ui, sans-serif);
+}
+
+.stripsWrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.strip {
+  height: 100%;
+  flex: 1;
+  background-color: #000000;
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.strip:last-child {
+  border-right: none;
+}
+
+.loaderContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  color: #ffffff;
+}
+
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+  margin: auto 0;
+}
+
+.greetingBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+}
+
+.greetingDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.greetingTicker {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.4rem;
+  position: relative;
+  min-width: 140px;
+}
+
+.greetingText {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  white-space: nowrap;
+}
+
+.nameTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem 1.4rem;
+  font-size: clamp(1.8rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 0.5rem;
+}
+
+.subtitleWrapper {
+  margin-top: 0.25rem;
+}
+
+.roleTag {
+  font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+  font-family: monospace;
+  letter-spacing: 0.2em;
+  color: #a1a1aa;
+  font-weight: 500;
+}
+
+.skipHint {
+  background: transparent;
+  border: none;
+  color: #71717a;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  margin-top: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  transition: color 0.2s ease;
+}
+
+.skipHint:hover {
+  color: #f4f4f5;
+}
+
+@media (max-width: 640px) {
+  .loaderContent {
+    padding: 1.25rem 1.25rem;
+  }
+}
