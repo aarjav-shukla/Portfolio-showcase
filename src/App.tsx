@@ -19,7 +19,7 @@ const App = () => {
       <SmoothScroll>
         <CustomCursor />
         <div className="relative min-h-screen w-full bg-black text-white overflow-x-hidden select-none">
-          {/* <SplashCursor
+          <SplashCursor
             DENSITY_DISSIPATION={3.5}
             VELOCITY_DISSIPATION={2}
             PRESSURE={0.1}
@@ -30,7 +30,7 @@ const App = () => {
             SHADING
             RAINBOW_MODE={false}
             COLOR="#525153"
-          /> */}
+          />
           <HeaderLogo />
           <Navigation />
           <Home />
