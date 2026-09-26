@@ -4,11 +4,20 @@ import React from "react";
 import { motion, type MotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-type AnimatedButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  MotionProps & {
-    children?: React.ReactNode;
-    as?: any;
-  };
+type AnimatedButtonBaseProps = MotionProps & {
+  children?: React.ReactNode;
+  className?: string;
+};
+
+type AnimatedButtonProps =
+  | (AnimatedButtonBaseProps &
+      Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof MotionProps> & {
+        as?: "button";
+      })
+  | (AnimatedButtonBaseProps &
+      Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof MotionProps> & {
+        as: "a";
+      });
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   children = "Browse Components",

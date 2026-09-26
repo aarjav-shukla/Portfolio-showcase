@@ -196,7 +196,7 @@ export default function SkillSection({ skillsData = defaultSkillsData }: SkillSe
               {category.items.map((item, itemIdx) => (
                 <AnimatedButton
                   key={itemIdx}
-                  as="div"
+                  as="a"
                   className="skill-item flex items-center gap-2 md:gap-3 bg-black/80 border border-white/15 hover:border-white/40 transition-all rounded-lg md:rounded-xl px-3 py-2 md:px-5 md:py-3 shadow-lg cursor-pointer"
                 >
                   {item.icon && (

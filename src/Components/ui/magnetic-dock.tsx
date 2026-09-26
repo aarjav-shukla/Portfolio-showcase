@@ -198,7 +198,6 @@ function MagneticDock({
     magneticDistance = 150,
     showLabels = true,
     position = "bottom",
-    variant = "glass",
     className,
 }: MagneticDockProps) {
     const mousePosition = useMotionValue(Infinity)

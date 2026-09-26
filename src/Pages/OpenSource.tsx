@@ -5,7 +5,6 @@ import { GithubCalendar } from '@/Components/ui/github-calendar';
 import { ImageRevealList, type ImageRevealListItem } from '@/Components/ui/image-reveal-list';
 import StatsCounter from '@/Components/ui/stats-counter';
 import AnimatedButton from '@/Components/ui/animated-button';
-import CursorGrid from '@/Components/CursorGrid';
 import eventyayImg from '@/Images/6295529.jpg';
 import submittyImg from '@/Images/10768785.png';
 import kanaDojoImg from '@/Images/240290321.png';

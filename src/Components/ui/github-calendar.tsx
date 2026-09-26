@@ -25,7 +25,8 @@ interface GithubCalendarProps {
     glowIntensity?: number
     className?: string
     showTotal?: boolean
-    colorSchema?: "green" | "yellow" | "purple" | "orange" | "gray"
+    colorSchema?: ColorSchema
+    
 }
 
 const colorSchemas = {
@@ -64,7 +65,15 @@ const colorSchemas = {
         level3: "bg-yellow-500 border border-yellow-400",
         level4: "bg-yellow-400 border border-yellow-300",
     },
+    orange: {
+        level0: "bg-zinc-100 dark:bg-zinc-900",
+        level1: "bg-orange-200 dark:bg-orange-900",
+        level2: "bg-orange-300 dark:bg-orange-700",
+        level3: "bg-orange-400 dark:bg-orange-500",
+        level4: "bg-orange-500 dark:bg-orange-400",
+    },
 }
+type ColorSchema = keyof typeof colorSchemas;
 
 function getLevelClass(level: string, schema: keyof typeof colorSchemas = "yellow") {
     const s = colorSchemas[schema] || colorSchemas.yellow
@@ -369,50 +378,68 @@ export function GithubCalendar({
                             const shapeClass = getShapeClass(shape);
 
                             return (
-                                <motion.div
-                                    key={day.date}
-                                    initial={{ opacity: 0, scale: 0 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{
-                                        delay: weekIndex * 0.005 + dayIndex * 0.005,
-                                        type: "spring",
-                                        stiffness: 260,
-                                        damping: 20
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        setHoveredDate(day.date)
-                                        setHoveredCount(day.contributionCount)
-                                        const rect = e.currentTarget.getBoundingClientRect()
-                                        const parent = e.currentTarget.offsetParent || e.currentTarget.parentElement
-                                        if (parent) {
-                                            const parentRect = parent.getBoundingClientRect()
-                                            setMousePos({
-                                                x: rect.left - parentRect.left + rect.width / 2,
-                                                y: rect.top - parentRect.top
-                                            })
-                                        }
-                                    }}
-                                    className={cn(
-                                        "w-full aspect-square transition-colors duration-200",
-                                        getLevelClass(day.contributionLevel, colorSchema),
-                                        isGlowing && "z-10",
-                                        shapeClass,
-                                        isMinimal && "rounded-full scale-75",
-                                    )}
-                                    style={
-                                        isGlowing ? {
-                                            boxShadow: day.contributionLevel !== "NONE"
-                                                ? `0 0 ${day.contributionCount > 3 ? `${glowIntensity * 1.5}px` : `${glowIntensity}px`} ${colorSchema === 'yellow' ? '#facc15' :
-                                                    colorSchema === 'green' ? '#10b981' :
-                                                        colorSchema === 'blue' ? '#3b82f6' :
-                                                            colorSchema === 'purple' ? '#a855f7' :
-                                                                '#f97316'
-                                                }`
-                                                : 'none'
-                                        } : undefined
-                                    }
-                                />
-                            )
+                              <motion.div
+                                key={day.date}
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{
+                                  delay: weekIndex * 0.005 + dayIndex * 0.005,
+                                  type: "spring",
+                                  stiffness: 260,
+                                  damping: 20,
+                                }}
+                                onMouseEnter={(e) => {
+                                  setHoveredDate(day.date);
+                                  setHoveredCount(day.contributionCount);
+                                  const rect =
+                                    e.currentTarget.getBoundingClientRect();
+                                  const parent =
+                                    e.currentTarget.offsetParent ||
+                                    e.currentTarget.parentElement;
+                                  if (parent) {
+                                    const parentRect =
+                                      parent.getBoundingClientRect();
+                                    setMousePos({
+                                      x:
+                                        rect.left -
+                                        parentRect.left +
+                                        rect.width / 2,
+                                      y: rect.top - parentRect.top,
+                                    });
+                                  }
+                                }}
+                                className={cn(
+                                  "w-full aspect-square transition-colors duration-200",
+                                  getLevelClass(
+                                    day.contributionLevel,
+                                    colorSchema,
+                                  ),
+                                  isGlowing && "z-10",
+                                  shapeClass,
+                                  isMinimal && "rounded-full scale-75",
+                                )}
+                                style={
+                                  isGlowing
+                                    ? {
+                                        boxShadow:
+                                          day.contributionLevel !== "NONE"
+                                            ? `0 0 ${day.contributionCount > 3 ? `${glowIntensity * 1.5}px` : `${glowIntensity}px`} ${
+                                                colorSchema === "yellow"
+                                                  ? "#facc15"
+                                                  : colorSchema === "green"
+                                                    ? "#10b981"
+                                                    : colorSchema === "gray"
+                                                      ? "#3b82f6"
+                                                      : colorSchema === "purple"
+                                                        ? "#a855f7"
+                                                        : "#f97316"
+                                              }`
+                                            : "none",
+                                      }
+                                    : undefined
+                                }
+                              />
+                            );
                         })}
                     </div>
                 ))}

@@ -392,13 +392,12 @@ export function ScrollSplitCard({
       >
         <AnimatedButton
           as="a"
-          href="https://github.com/aarjav-shukla"
+          href="https://github.com/aarjav-shukla?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
           className="font-extrabold text-xs sm:text-sm uppercase tracking-wider px-6 py-2.5 sm:px-8 sm:py-3 rounded-full bg-zinc-950 border border-zinc-700/80 hover:border-yellow-400/60 shadow-2xl cursor-pointer shrink-0 z-30 flex items-center gap-2 group"
         >
           <span>View All Projects</span>
-
         </AnimatedButton>
 
         <ShinyText
