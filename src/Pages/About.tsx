@@ -56,7 +56,7 @@ const About: React.FC = () => {
             </div>
 
             <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12 mt-6 sm:mt-8">
-                <div className="w-full lg:w-1/2 flex flex-col pt-4 sm:pt-6">
+                <div className="w-full flex flex-col pt-4 sm:pt-6 text-center">
                     <TextAnimation
                         divideBy="word"
                         delay={0.1}
@@ -70,21 +70,21 @@ const About: React.FC = () => {
                     </TextAnimation>
                 </div>
 
-                <div ref={keyboardWrapperRef} className="w-full lg:w-1/2 flex justify-center lg:justify-end overflow-visible">
-                    <TypingKeyboard
-                        autoTypeText="const aarjav:Developer = {
-    college:IIIT sonepat-B.Tech CSE,
-    focus:[
-    Full Stack Development,
-    Open source contributions,
-    DevOps,
-    DSA
-  ]}"
-                        typingSpeed={[100, 130]}
-                        scale={1}
-                        className="w-full flex items-center justify-center lg:justify-end pointer-events-auto"
-                    />
-                </div>
+                {/* <div ref={keyboardWrapperRef} className="w-full lg:w-1/2 flex justify-center lg:justify-end overflow-visible">
+                        <TypingKeyboard
+                            autoTypeText="const aarjav:Developer = {
+        college:IIIT sonepat-B.Tech CSE,
+        focus:[
+        Full Stack Development,
+        Open source contributions,
+        DevOps,
+        DSA
+    ]}"
+                            typingSpeed={[100, 130]}
+                            scale={1}
+                            className="w-full flex items-center justify-center lg:justify-end pointer-events-auto"
+                        />
+            </div> */}
             </div>
         </section>
     );
